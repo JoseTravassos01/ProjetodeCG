@@ -141,3 +141,16 @@ position = Vector2(-67, 86)
 
 [node name="point2" type="Marker2D" parent="enemyCrab/PatrolPoints"]
 position = Vector2(142, 88)
+
+[node name="enemyCrab2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_khr8e")]
+position = Vector2(471, -93)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Marker2D" parent="enemyCrab2"]
+position = Vector2(-4, 2)
+
+[node name="point1" type="Marker2D" parent="enemyCrab2/PatrolPoints"]
+position = Vector2(-67, 86)
+
+[node name="point2" type="Marker2D" parent="enemyCrab2/PatrolPoints"]
+position = Vector2(142, 88)
