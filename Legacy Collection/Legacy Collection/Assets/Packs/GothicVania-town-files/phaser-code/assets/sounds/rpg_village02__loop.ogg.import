@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btkvbrr7cfo31"
+path="res://.godot/imported/rpg_village02__loop.ogg-c33ab847a0d2389267b60405fbf804d1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Legacy Collection/Legacy Collection/Assets/Packs/GothicVania-town-files/phaser-code/assets/sounds/rpg_village02__loop.ogg"
+dest_files=["res://.godot/imported/rpg_village02__loop.ogg-c33ab847a0d2389267b60405fbf804d1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

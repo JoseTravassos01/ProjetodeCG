@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://db62y4o32rwgr"
+path="res://.godot/imported/rpg_village02_loop.mp3-4e48a1656b0410133f3cb98551291d30.mp3str"
+
+[deps]
+
+source_file="res://Legacy Collection/Legacy Collection/Assets/Packs/GothicVania-town-files/phaser-code/assets/sounds/rpg_village02_loop.mp3"
+dest_files=["res://.godot/imported/rpg_village02_loop.mp3-4e48a1656b0410133f3cb98551291d30.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1yupsrbksruv"
+path="res://.godot/imported/enter.wav-56e0e5fa274afb63430c7e2fabadd6c8.sample"
+
+[deps]
+
+source_file="res://Legacy Collection/Legacy Collection/Assets/Packs/Meta data assets files/sounds/fx/enter.wav"
+dest_files=["res://.godot/imported/enter.wav-56e0e5fa274afb63430c7e2fabadd6c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
