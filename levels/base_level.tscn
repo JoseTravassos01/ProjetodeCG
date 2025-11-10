@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba5tbc4ipaplk"]
+[gd_scene load_steps=6 format=3 uid="uid://ba5tbc4ipaplk"]
 
 [ext_resource type="Texture2D" uid="uid://dkb1w66ky6d6m" path="res://TileSet/tilesets.png" id="1_0qwkq"]
 [ext_resource type="PackedScene" uid="uid://xgh4ay8aaab0" path="res://Player/player.tscn" id="2_wdg22"]
-[ext_resource type="Script" path="res://Player/player.gd" id="3_l6pcg"]
 [ext_resource type="PackedScene" uid="uid://c5tai723mtirp" path="res://enemy/enemy_crab.tscn" id="4_khr8e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73o6n"]
@@ -126,7 +125,6 @@ layer_0/tile_data = PackedInt32Array(65534, 983040, 8, 131070, 983040, 8, 196606
 
 [node name="Player" parent="." instance=ExtResource("2_wdg22")]
 position = Vector2(58, -85)
-script = ExtResource("3_l6pcg")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
