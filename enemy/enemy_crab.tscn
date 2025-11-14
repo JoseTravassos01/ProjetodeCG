@@ -51,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_arxgy")
 }],
-"loop": false,
+"loop": true,
 "name": &"andar",
 "speed": 10.0
 }, {
@@ -84,6 +84,7 @@ position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_fcdup")
 animation = &"andar"
 autoplay = "idle"
+frame_progress = 0.361723
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -13)

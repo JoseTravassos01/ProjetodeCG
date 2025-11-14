@@ -77,7 +77,7 @@ func enemy_walk(delta : float):
 		
 		can_walk = false
 		timer.start()
-	
+	 
 	animated_sprite_2d.flip_h = direction.x > 0
 
 
