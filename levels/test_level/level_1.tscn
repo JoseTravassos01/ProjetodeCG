@@ -19,9 +19,10 @@ position = Vector2(56, -49)
 limit_left = 150
 limit_top = -400
 limit_right = 2900
-limit_bottom = -20
+limit_bottom = 25
 
 [node name="enemyCrab" parent="." index="2"]
+visible = false
 position = Vector2(285, -45)
 
 [node name="point1" parent="enemyCrab/PatrolPoints" index="0"]
@@ -31,9 +32,10 @@ position = Vector2(-84, 19)
 position = Vector2(138, 22)
 
 [node name="enemyCrab2" parent="." index="3"]
+visible = false
 position = Vector2(1043, -57)
 
-[node name="PatrolPoints" parent="enemyCrab2" index="3"]
+[node name="PatrolPoints" parent="enemyCrab2" index="4"]
 position = Vector2(0, 0)
 
 [node name="point1" parent="enemyCrab2/PatrolPoints" index="0"]
@@ -41,3 +43,6 @@ position = Vector2(-100, 85)
 
 [node name="point2" parent="enemyCrab2/PatrolPoints" index="1"]
 position = Vector2(111, 83)
+
+[node name="ParallaxBackground" parent="." index="4"]
+visible = false

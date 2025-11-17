@@ -21,10 +21,9 @@ GameManager="*res://sc/game_manager.gd"
 
 [display]
 
-window/size/viewport_width=2185
-window/size/viewport_height=1229
+window/size/viewport_width=800
+window/size/viewport_height=400
 window/size/initial_position=Vector2i(0, 12)
-window/size/borderless=true
 window/stretch/scale=1.91
 
 [input]
@@ -62,6 +61,7 @@ shoot={
 
 2d_physics/layer_1="GROUND"
 2d_physics/layer_2="PLAYER"
+2d_physics/layer_3="ENEM"
 
 [rendering]
 

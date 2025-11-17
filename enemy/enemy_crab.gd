@@ -59,7 +59,7 @@ func enemy_walk(delta : float):
 	if !can_walk:
 		return
 	
-	if abs(position.x - current_point.x) > 0.5:
+	if abs(global_position.x - current_point.x) > 0.5:
 		velocity.x = direction.x * speed * delta
 		current_state = State.Walk
 	else:
@@ -70,7 +70,7 @@ func enemy_walk(delta : float):
 		
 		current_point = point_positions[current_point_position];
 	
-		if current_point.x > position.x:
+		if current_point.x > global_position.x:
 			direction = Vector2.RIGHT
 		else:
 			direction = Vector2.LEFT
@@ -98,3 +98,7 @@ func _on_hurtbox_area_entered(area : Area2D):
 		health_amount -= node.damage_amount
 		print("Health amount: ", health_amount)
 		
+
+
+func _on_area_2d_area_entered(area):
+	print("Hurtbox area entered")
