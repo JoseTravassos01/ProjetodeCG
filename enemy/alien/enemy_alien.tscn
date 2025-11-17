@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5wyemopvkwse"]
+[gd_scene load_steps=26 format=3 uid="uid://b5wyemopvkwse"]
 
 [ext_resource type="Texture2D" uid="uid://dnvjsvfbd6bce" path="res://enemy/alien/slimer.png" id="1_a5oox"]
 [ext_resource type="Texture2D" uid="uid://t4mswmihcduh" path="res://enemy/alien/slimer-idle.png" id="2_rq4hl"]
 [ext_resource type="Script" path="res://enemy/alien/gravity.gd" id="3_bvrc8"]
+[ext_resource type="Script" path="res://enemy/alien/state_machine_controller.gd" id="4_us5tg"]
 [ext_resource type="Script" path="res://sc/StateMachine/node_finite_state_machine.gd" id="4_uuuow"]
 [ext_resource type="Script" path="res://enemy/alien/idle_sate.gd" id="5_ggc5v"]
 [ext_resource type="Script" path="res://enemy/alien/attack_state.gd" id="6_c74s4"]
@@ -133,6 +134,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5kin"]
 radius = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgxpu"]
+radius = 21.0238
+
 [node name="enemyAlien" type="CharacterBody2D"]
 collision_layer = 4
 
@@ -152,11 +156,28 @@ script = ExtResource("3_bvrc8")
 character_body_2d = NodePath("..")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("node_finite_state_machine")]
+script = ExtResource("4_us5tg")
+node_finite_state_machine = NodePath("../StateMachine")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("4_uuuow")
+initial_node_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_ggc5v")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_c74s4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_kgxpu")
+debug_color = Color(0.694129, 0.283245, 1, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="StateMachineController" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="StateMachineController" method="_on_area_2d_body_exited"]

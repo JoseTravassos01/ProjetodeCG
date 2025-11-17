@@ -1,20 +1,28 @@
 extends NodeState
 
-@export var character_body_2d : CharacterBody2D
-@export var animated_sprite_2d : AnimatedSprite2D
-@export var slow_down_speed : int = 50 
+@onready var character_body_2d: CharacterBody2D = get_parent().get_parent()
+@onready var animated_sprite_2d: AnimatedSprite2D = character_body_2d.get_node("AnimatedSprite2D")
+@export var slow_down_speed: int = 50 
 
-func _process(delta: float):
+func _process(delta: float) -> void:
 	pass
 
-func on_physics_process(delta : float):
-	character_body_2d.velocity.x = move_toward(character_body_2d.velocity.x, 0, slow_down_speed * delta)
+func on_physics_process(delta: float) -> void:
+	# desacelera no eixo X
+	character_body_2d.velocity.x = move_toward(
+		character_body_2d.velocity.x,
+		0.0,
+		slow_down_speed * delta
+	)
+
+	# animação de idle
 	animated_sprite_2d.play("idle")
+
+	# aplica movimento
 	character_body_2d.move_and_slide()
 
-func enter():
+func enter() -> void:
 	pass
 
-func exit():
+func exit() -> void:
 	pass
-	
