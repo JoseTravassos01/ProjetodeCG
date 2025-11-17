@@ -1,0 +1,162 @@
+[gd_scene load_steps=24 format=3 uid="uid://b5wyemopvkwse"]
+
+[ext_resource type="Texture2D" uid="uid://dnvjsvfbd6bce" path="res://enemy/alien/slimer.png" id="1_a5oox"]
+[ext_resource type="Texture2D" uid="uid://t4mswmihcduh" path="res://enemy/alien/slimer-idle.png" id="2_rq4hl"]
+[ext_resource type="Script" path="res://enemy/alien/gravity.gd" id="3_bvrc8"]
+[ext_resource type="Script" path="res://sc/StateMachine/node_finite_state_machine.gd" id="4_uuuow"]
+[ext_resource type="Script" path="res://enemy/alien/idle_sate.gd" id="5_ggc5v"]
+[ext_resource type="Script" path="res://enemy/alien/attack_state.gd" id="6_c74s4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alj3x"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(0, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eonh1"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(41, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcm7f"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(82, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn6di"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(123, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4kj8"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(164, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7joe"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(205, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnqtg"]
+atlas = ExtResource("1_a5oox")
+region = Rect2(246, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udbnr"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(0, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esvp8"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(41, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0liiy"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(82, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4b3j"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(123, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cje77"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(164, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmgff"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(205, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf0ca"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(246, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dgfw"]
+atlas = ExtResource("2_rq4hl")
+region = Rect2(287, 0, 41, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1id88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alj3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eonh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcm7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn6di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4kj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7joe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnqtg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 11.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udbnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esvp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0liiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4b3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cje77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmgff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf0ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dgfw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5kin"]
+radius = 12.0
+
+[node name="enemyAlien" type="CharacterBody2D"]
+collision_layer = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -19)
+sprite_frames = SubResource("SpriteFrames_1id88")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.134175
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_a5kin")
+
+[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body_2d", "animated_sprite_2d")]
+script = ExtResource("3_bvrc8")
+character_body_2d = NodePath("..")
+animated_sprite_2d = NodePath("../AnimatedSprite2D")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_uuuow")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_ggc5v")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("6_c74s4")

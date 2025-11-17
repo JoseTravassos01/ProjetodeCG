@@ -104,6 +104,6 @@ func _on_area_2d_area_entered(area):
 		
 		if health_amount <= 0:
 			var enemy_death_effect_instance = enemy_death_effect.instantiate() as Node2D
-			enemy_death_effect_instance.global_position = global_position
+			enemy_death_effect_instance.global_position = position
 			get_parent().add_child(enemy_death_effect_instance)
 			queue_free()

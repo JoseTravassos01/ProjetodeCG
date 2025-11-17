@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3gktgt2v0nlr" path="res://TileSet/props.png" id="2_fkfvd"]
 [ext_resource type="PackedScene" uid="uid://xgh4ay8aaab0" path="res://Player/player.tscn" id="2_wdg22"]
 [ext_resource type="Texture2D" uid="uid://5gvnrog0ox54" path="res://TileSet/walls.png" id="3_70u1b"]
-[ext_resource type="PackedScene" uid="uid://c5tai723mtirp" path="res://enemy/enemy_crab.tscn" id="4_khr8e"]
+[ext_resource type="PackedScene" uid="uid://c5tai723mtirp" path="res://enemy/crab/enemy_crab.tscn" id="4_khr8e"]
 [ext_resource type="PackedScene" uid="uid://biftf3yw4dk5f" path="res://background/parallax_background.tscn" id="4_ptjpl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73o6n"]

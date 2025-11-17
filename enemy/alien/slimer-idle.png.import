@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://010be1vplf0j"
-path="res://.godot/imported/crab-walk.png-e8d5f752567a32888b993e05f616569e.ctex"
+uid="uid://t4mswmihcduh"
+path="res://.godot/imported/slimer-idle.png-fc7be3bb2827ae062c45f045349efee2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/crab-walk.png"
-dest_files=["res://.godot/imported/crab-walk.png-e8d5f752567a32888b993e05f616569e.ctex"]
+source_file="res://enemy/alien/slimer-idle.png"
+dest_files=["res://.godot/imported/slimer-idle.png-fc7be3bb2827ae062c45f045349efee2.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkfxlompbqjrn"]
+[gd_scene load_steps=3 format=3 uid="uid://dkfxlompbqjrn"]
 
 [ext_resource type="PackedScene" uid="uid://b8bbi5cyv8g3d" path="res://levels/test_level/test_level.tscn" id="1_8i6w7"]
+[ext_resource type="PackedScene" uid="uid://b5wyemopvkwse" path="res://enemy/alien/enemy_alien.tscn" id="2_dfe1k"]
 
 [node name="Level1" instance=ExtResource("1_8i6w7")]
 position = Vector2(180, -49)
@@ -41,3 +42,6 @@ position = Vector2(-100, 85)
 
 [node name="point2" parent="enemyCrab2/PatrolPoints" index="1"]
 position = Vector2(111, 83)
+
+[node name="enemyAlien" parent="." index="5" instance=ExtResource("2_dfe1k")]
+position = Vector2(947, -43)
