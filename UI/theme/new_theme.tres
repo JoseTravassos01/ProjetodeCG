@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b7c8y7p2uo6m2"]
-
-[ext_resource type="FontFile" uid="uid://dlavnoshh0pip" path="res://UI/theme/GravityBold8.ttf" id="1_btnfw"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b7c8y7p2uo6m2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1njb"]
 content_margin_left = 10.0
@@ -72,7 +70,7 @@ Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 10
-Button/fonts/font = ExtResource("1_btnfw")
+Button/fonts/font = null
 Button/styles/disabled = SubResource("StyleBoxFlat_s1njb")
 Button/styles/focus = SubResource("StyleBoxFlat_wta40")
 Button/styles/hover = SubResource("StyleBoxFlat_n12ev")

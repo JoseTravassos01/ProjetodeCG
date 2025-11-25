@@ -29,6 +29,10 @@ const GRAVITY = 1000
 @export var jump: int = -300
 @export var jump_horizontal_speed: int = 1000
 @export var max_jump_horizontal_speed: int = 300
+@export var wall_slide_speed: float = 80.0
+# --- KNOCKBACK (pulo pra trás quando leva dano) ---
+@export var knockback_horizontal: float = 800.0
+@export var knockback_vertical: float = -550.0
 
 # --------- CONTROLE DE PULO ----------
 const MAX_JUMPS := 3         # máximo de pulos
@@ -47,7 +51,7 @@ func _ready() -> void:
 	# guarda escala original do sprite
 	original_sprite_scale = animated_sprite_2d.scale
 
-	# guarda tamanho e posição original do collider (já tinha isso)
+	# guarda tamanho e posição original do collider
 	var rect_shape := collision_shape_2d.shape as RectangleShape2D
 	if rect_shape:
 		original_shape_size_y = rect_shape.size.y
@@ -66,6 +70,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	player_animation()
+
+	# sprite sempre segue a direção que está olhando
+	animated_sprite_2d.flip_h = facing_direction < 0
 
 	# reseta pulos quando encosta no chão
 	if is_on_floor():
@@ -103,8 +110,6 @@ func player_run(delta: float) -> void:
 	if direction != 0 and current_state != State.Shoot and current_state != State.Slide:
 		current_state = State.Run
 
-	animated_sprite_2d.flip_h = facing_direction < 0
-
 
 # -------------------- PULO / WALL JUMP --------------------
 
@@ -134,10 +139,14 @@ func player_jump(delta: float) -> void:
 		current_state = State.Jump
 		jumps_left -= 1
 
+	# NO AR: pode mover e virar pros dois lados
 	if !is_on_floor() and current_state == State.Jump:
 		var direction := Input.get_axis("move_left", "move_right")
 		velocity.x += direction * jump_horizontal_speed * delta
 		velocity.x = clamp(velocity.x, -max_jump_horizontal_speed, max_jump_horizontal_speed)
+
+		if direction != 0:
+			facing_direction = 1 if direction > 0 else -1
 
 
 # -------------------- SLIDE --------------------
@@ -151,21 +160,20 @@ func start_slide() -> void:
 	current_state = State.Slide
 	slide_timer = SLIDE_DURATION
 
-	# 🔹 Aumenta o tamanho VISUAL do sprite no slide
-	animated_sprite_2d.scale = original_sprite_scale * 1.3
+	# aumenta o tamanho visual do sprite no slide
+	animated_sprite_2d.scale = original_sprite_scale * 1.5
 
 	velocity.y = 0.0
 	velocity.x = facing_direction * SLIDE_SPEED
 
 	var rect_shape := collision_shape_2d.shape as RectangleShape2D
 	if rect_shape:
-		var new_height := original_shape_size_y * 0.20  # seu valor atual
+		var new_height := original_shape_size_y * 0.20
 		var old_height := rect_shape.size.y
 
 		rect_shape.size.y = new_height
 		var diff := (old_height - new_height) * 0.5
 		collision_shape_2d.position = original_shape_position + Vector2(0, diff)
-
 
 
 func end_slide() -> void:
@@ -174,14 +182,13 @@ func end_slide() -> void:
 
 	current_state = State.Idle
 
-	# 🔹 Volta a escala original do sprite
+	# volta a escala original do sprite
 	animated_sprite_2d.scale = original_sprite_scale
 
 	var rect_shape := collision_shape_2d.shape as RectangleShape2D
 	if rect_shape:
 		rect_shape.size.y = original_shape_size_y
 		collision_shape_2d.position = original_shape_position
-
 
 
 func player_slide(delta: float) -> void:
@@ -206,12 +213,16 @@ func player_wall_slide(delta: float) -> void:
 	if current_state == State.Slide:
 		return
 
-	if is_on_wall():
-		if velocity.y > 0.0:
-			velocity.y = 0.0
+	# Se está encostado na parede e caindo, começa a "derrapar"
+	if is_on_wall() and velocity.y > 0.0:
+		# limita a velocidade pra descer devagar
+		if velocity.y > wall_slide_speed:
+			velocity.y = wall_slide_speed
+
 		current_state = State.Wall
 		jumps_left = MAX_JUMPS
 	else:
+		# saiu da parede, volta pro estado de pulo se ainda no ar
 		if current_state == State.Wall and !is_on_floor():
 			current_state = State.Jump
 
@@ -270,11 +281,26 @@ func player_animation() -> void:
 		else:
 			animated_sprite_2d.play("run")
 	elif current_state == State.Shoot:
-		animated_sprite_2d.play("run_shoot")
+		# se estiver parado no chão, atira mas animação idle
+		if is_on_floor() and abs(velocity.x) < 5.0:
+			animated_sprite_2d.play("idle")
+		else:
+			animated_sprite_2d.play("run_shoot")
 
 
 func input_movement() -> float:
 	return Input.get_axis("move_left", "move_right")
+
+
+# -------------------- KNOCKBACK / DANO --------------------
+
+func apply_knockback() -> void:
+	# joga sempre pra TRÁS (oposto de onde está olhando)
+	var dir := -facing_direction
+	velocity.x = dir * knockback_horizontal
+	velocity.y = knockback_vertical
+
+	current_state = State.Jump
 
 
 # -------------------- MORTE --------------------
@@ -302,5 +328,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		hit_animation_player.play("hit")
 		HealthManagert.decrease_health(body.damage_amount)
 
-	if HealthManagert.current_health == 0:
-		player_death()
+		if HealthManagert.current_health > 0:
+			# leva dano → pulo pra trás
+			apply_knockback()
+		else:
+			# morreu → animação/mecânica de morte
+			player_death()   

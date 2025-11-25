@@ -1,15 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bru2x31epajlk"]
+[gd_scene load_steps=6 format=3 uid="uid://bru2x31epajlk"]
 
-[ext_resource type="Texture2D" uid="uid://j4tb4ufepum0" path="res://Player/shot.png" id="1_0q1s8"]
+[ext_resource type="Texture2D" uid="uid://biim2dosxo3js" path="res://Player/impact.png" id="1_trphk"]
 [ext_resource type="Script" path="res://Player/bullet.gd" id="2_lqixg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7cj0"]
-atlas = ExtResource("1_0q1s8")
-region = Rect2(0, 0, 6, 4)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pc74c"]
-atlas = ExtResource("1_0q1s8")
-region = Rect2(6, 0, 6, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkxu0"]
+atlas = ExtResource("1_trphk")
+region = Rect2(0, 0, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wusyt"]
 animations = [{
@@ -20,10 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f7cj0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pc74c")
+"texture": SubResource("AtlasTexture_mkxu0")
 }],
 "loop": true,
 "name": &"shot",
