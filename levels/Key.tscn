@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://43wcvciyuvxg"]
+
+[ext_resource type="Script" path="res://collectibles/blue_coin/blue_coin.gd" id="1_b5abr"]
+[ext_resource type="Texture2D" uid="uid://devha7hkhvnhg" path="res://levels/keys/tile_0027.png" id="2_y7l40"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d72xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y7l40")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eoas5"]
+radius = 9.0
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_b5abr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(0.944444, 0.944444)
+sprite_frames = SubResource("SpriteFrames_d72xw")
+autoplay = "default"
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_eoas5")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -12.0
+offset_right = 19.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

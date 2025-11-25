@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4aoruy4j8341"]
+
+[ext_resource type="Texture2D" uid="uid://cuqufgcnsvjpc" path="res://Player/player_death_effect/Dark-Bolt.png" id="1_5r68b"]
+[ext_resource type="Script" path="res://Player/player_death_effect/player_death_effect.gd" id="1_rhst6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edhe4"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(256, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gttvx"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(320, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyru4"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(384, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1osu4"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(448, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_064dd"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(512, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx2fy"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(576, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbtan"]
+atlas = ExtResource("1_5r68b")
+region = Rect2(640, 0, 64, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0p2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edhe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gttvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyru4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1osu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_064dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx2fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbtan")
+}],
+"loop": false,
+"name": &"death_effect",
+"speed": 15.0
+}]
+
+[node name="PlayerDeathEffect" type="Node2D"]
+script = ExtResource("1_rhst6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -40)
+sprite_frames = SubResource("SpriteFrames_g0p2t")
+animation = &"death_effect"
+autoplay = "death_effect"
+frame = 6
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

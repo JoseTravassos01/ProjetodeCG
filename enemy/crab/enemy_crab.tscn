@@ -80,7 +80,9 @@ height = 24.0
 radius = 13.0
 height = 28.0
 
-[node name="enemyCrab" type="CharacterBody2D"]
+[node name="enemyCrab" type="CharacterBody2D" groups=["Enemy", "Player"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_uem1c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

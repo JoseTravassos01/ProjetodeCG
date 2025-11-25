@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="BressanGame"
-run/main_scene="res://levels/base_level.tscn"
+run/main_scene="res://UI/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://sc/game_manager.gd"
+HealthManagert="*res://sc/health_manager.gd"
+CollectibleManager="*res://sc/collectible_manager.gd"
+SettingsManager="*res://sc/settings_manager.gd"
+SceneManager="*res://sc/scene_manager.gd"
+InvetoryManager="*res://sc/invetory_manager.gd"
+KeyManager="*res://levels/keys/key_manager.gd"
 
 [display]
 
@@ -28,6 +34,7 @@ window/stretch/scale=1.91
 [global_group]
 
 Player=""
+Enemy=""
 
 [input]
 
@@ -59,12 +66,21 @@ shoot={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
 ]
 }
+slide={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":122,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
 2d_physics/layer_1="GROUND"
 2d_physics/layer_2="PLAYER"
 2d_physics/layer_3="ENEM"
+2d_physics/layer_4="PICKUP"
+2d_physics/layer_5="COLLECTIBLES"
+2d_physics/layer_6="DOOR"
+2d_physics/layer_7="KEYS"
 
 [rendering]
 

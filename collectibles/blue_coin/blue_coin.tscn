@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://b27sc18j3r8f1"]
+
+[ext_resource type="Texture2D" uid="uid://cl28re3dhysgi" path="res://collectibles/coins-chests-etc-2-0(1)(1).png" id="1_o8e7p"]
+[ext_resource type="Script" path="res://collectibles/blue_coin/blue_coin.gd" id="1_shqm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r85g"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw4ir"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqacu"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya0dm"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4krg"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of5db"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be114"]
+atlas = ExtResource("1_o8e7p")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d72xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r85g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw4ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqacu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya0dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4krg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of5db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be114")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eoas5"]
+radius = 9.0
+
+[node name="BlueCoin" type="Node2D"]
+script = ExtResource("1_shqm6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d72xw")
+frame_progress = 0.294236
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_eoas5")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -12.0
+offset_right = 19.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

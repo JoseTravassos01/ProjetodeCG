@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://c571b32rm7dy7"]
+
+[ext_resource type="Script" path="res://UI/game_screen.gd" id="1_l8ejy"]
+[ext_resource type="PackedScene" uid="uid://ciipu12v03a43" path="res://UI/health_bar/health_bar.tscn" id="1_rghgv"]
+[ext_resource type="Texture2D" uid="uid://cl28re3dhysgi" path="res://collectibles/coins-chests-etc-2-0(1)(1).png" id="2_hq6b0"]
+[ext_resource type="Texture2D" uid="uid://c2cdr4w1k0wum" path="res://collectibles/cruz1.png" id="4_kjg72"]
+[ext_resource type="Texture2D" uid="uid://cmq03t2ori020" path="res://UI/icons8-pause-12.png" id="4_utxnp"]
+[ext_resource type="Script" path="res://UI/collectible_label.gd" id="5_cib2w"]
+
+[node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_l8ejy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/Control" instance=ExtResource("1_rghgv")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 1)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
+texture = ExtResource("2_hq6b0")
+centered = false
+hframes = 20
+vframes = 4
+
+[node name="CollectibleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 1)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2/Control"]
+position = Vector2(-2, -2)
+scale = Vector2(0.036, 0.036)
+texture = ExtResource("4_kjg72")
+centered = false
+
+[node name="CollectibleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "0"
+script = ExtResource("5_cib2w")
+
+[node name="PauseTextureButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("4_utxnp")
+
+[connection signal="pressed" from="MarginContainer/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]

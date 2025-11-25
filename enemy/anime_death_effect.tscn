@@ -45,6 +45,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w0xwo")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"enemy_death",
@@ -55,7 +58,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_bd0uc")
 animation = &"enemy_death"
 autoplay = "enemy_death"
-frame = 4
+frame = 5
 frame_progress = 1.0
 script = ExtResource("2_ptm45")
 

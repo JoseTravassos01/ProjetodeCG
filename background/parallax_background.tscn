@@ -1,75 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://biftf3yw4dk5f"]
+[gd_scene load_steps=3 format=3 uid="uid://biftf3yw4dk5f"]
 
-[ext_resource type="Texture2D" uid="uid://iqcg4j5v7k5k" path="res://background/background.png" id="1_syxbo"]
-[ext_resource type="Texture2D" uid="uid://bkyacd6wns2wu" path="res://background/middleground-no-fungus.png" id="2_wxd2h"]
-[ext_resource type="Texture2D" uid="uid://bt2y3amlqgnde" path="res://background/middleground.png" id="3_dxuxo"]
+[ext_resource type="Texture2D" uid="uid://pva5i7rlh8ga" path="res://background/unnamed.jpg" id="1_wxgbp"]
+[ext_resource type="Texture2D" uid="uid://c7jwe60o4ew4c" path="res://background/Gemini_Generated_Image_lhi7rlhi7rlhi7rl.png" id="2_2ohcs"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(37, -46)
+motion_mirroring = Vector2(1900, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(543, -398.529)
+scale = Vector2(0.415341, 0.42379)
+texture = ExtResource("2_2ohcs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1520, -402)
+scale = Vector2(0.342941, 0.414397)
+texture = ExtResource("2_2ohcs")
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(37, -46)
-motion_mirroring = Vector2(480, 0)
+motion_mirroring = Vector2(2000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(142, -88)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_syxbo")
+position = Vector2(508.75, -88.75)
+scale = Vector2(1.05127, 1.08654)
+texture = ExtResource("1_wxgbp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(707.5, -88)
-scale = Vector2(3.2125, 1.5)
-texture = ExtResource("1_syxbo")
+position = Vector2(1512.96, -88)
+scale = Vector2(0.919841, 1.0891)
+texture = ExtResource("1_wxgbp")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
-visible = false
-position = Vector2(900, -88)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_syxbo")
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(37, -46)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(508.75, -88.75)
+scale = Vector2(1.05127, 1.08654)
+texture = ExtResource("1_wxgbp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(1512.96, -88)
+scale = Vector2(0.919841, 1.0891)
+texture = ExtResource("1_wxgbp")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 position = Vector2(37, -221)
 motion_mirroring = Vector2(480, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(149, -177)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_syxbo")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(703.5, -177)
-scale = Vector2(3.17917, 1.5)
-texture = ExtResource("1_syxbo")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer2"]
-visible = false
-position = Vector2(899, -177)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_syxbo")
-
-[node name="middleground" type="ParallaxLayer" parent="."]
-position = Vector2(37, -46)
-motion_mirroring = Vector2(816, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="middleground"]
-position = Vector2(166, -88)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_wxd2h")
-
-[node name="Sprite2D2" type="Sprite2D" parent="middleground"]
-position = Vector2(574, -88)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_dxuxo")
-
-[node name="middleground2" type="ParallaxLayer" parent="."]
-position = Vector2(37, -221)
-motion_mirroring = Vector2(816, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="middleground2"]
-position = Vector2(166, -177)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_wxd2h")
-
-[node name="Sprite2D2" type="Sprite2D" parent="middleground2"]
-position = Vector2(574, -176)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_dxuxo")
