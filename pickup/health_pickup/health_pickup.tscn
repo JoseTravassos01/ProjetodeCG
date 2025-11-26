@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://blnibnjm5lgvn"]
+[gd_scene load_steps=13 format=3 uid="uid://blnibnjm5lgvn"]
 
 [ext_resource type="Script" path="res://pickup/health_pickup/health_pickup.gd" id="1_cwntw"]
 [ext_resource type="Texture2D" uid="uid://di5r3uba7lwif" path="res://pickup/health_pickup/power-up.png" id="1_pcmoh"]
+[ext_resource type="AudioStream" uid="uid://dptd0816vakak" path="res://UI/Musics/Health-pickup-sound-effect.mp3" id="3_ghgxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10psj"]
 atlas = ExtResource("1_pcmoh")
@@ -84,5 +85,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickupBox"]
 shape = SubResource("CircleShape2D_m8g6j")
 debug_color = Color(0.686323, 0.500218, 5.77569e-07, 0.42)
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ghgxh")
 
 [connection signal="body_entered" from="HealthPickupBox" to="." method="_on_health_pickup_box_body_entered"]

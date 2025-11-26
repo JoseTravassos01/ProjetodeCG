@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://c52r8q65uoupd"]
+
+[ext_resource type="PackedScene" uid="uid://b8bbi5cyv8g3d" path="res://levels/test_level/test_level.tscn" id="1_xomda"]
+[ext_resource type="PackedScene" uid="uid://b27sc18j3r8f1" path="res://collectibles/blue_coin/blue_coin.tscn" id="2_5xxdb"]
+[ext_resource type="PackedScene" uid="uid://canbv3hybrshh" path="res://enemy/FinalBoss/enemy_alien2.tscn" id="3_eauvh"]
+[ext_resource type="PackedScene" uid="uid://c571b32rm7dy7" path="res://UI/game_screen.tscn" id="4_aqvm3"]
+[ext_resource type="PackedScene" uid="uid://biftf3yw4dk5f" path="res://background/parallax_background.tscn" id="4_r42cf"]
+[ext_resource type="PackedScene" uid="uid://enbxvtm67m48" path="res://levels/door/door.tscn" id="5_hljoi"]
+[ext_resource type="PackedScene" uid="uid://cu7d4pfsw7yhe" path="res://levels/keys/key.tscn" id="6_fekfb"]
+[ext_resource type="PackedScene" uid="uid://blnibnjm5lgvn" path="res://pickup/health_pickup/health_pickup.tscn" id="7_hjuyj"]
+[ext_resource type="PackedScene" uid="uid://b5wyemopvkwse" path="res://enemy/alien/enemy_alien.tscn" id="8_qyqmn"]
+
+[node name="Level3" instance=ExtResource("1_xomda")]
+position = Vector2(183, -49)
+
+[node name="Collectibles" type="Node" parent="." index="0"]
+
+[node name="BlueCoin" parent="Collectibles" index="0" instance=ExtResource("2_5xxdb")]
+position = Vector2(1406, -19)
+
+[node name="BlueCoin2" parent="Collectibles" index="1" instance=ExtResource("2_5xxdb")]
+position = Vector2(1507, -21)
+
+[node name="BlueCoin3" parent="Collectibles" index="2" instance=ExtResource("2_5xxdb")]
+position = Vector2(1461, -21)
+
+[node name="enemyAlien" parent="Collectibles" index="3" instance=ExtResource("3_eauvh")]
+position = Vector2(2604, -1402)
+
+[node name="enemyAlien2" parent="Collectibles" index="4" instance=ExtResource("3_eauvh")]
+position = Vector2(-693, -1036)
+
+[node name="TileMap" parent="." index="1"]
+position = Vector2(-1, 0)
+layer_0/name = "background2"
+layer_1/tile_data = PackedInt32Array(-3211296, 131075, 0, -3276832, 131075, 0, -3342368, 131075, 0, -3407903, 131075, 0, -3473439, 131075, 0, -3538975, 131075, 0, 5046268, 131075, 0, 5046238, 131075, 0, 5177311, 131075, 0, 5177310, 131075, 0, 5177341, 131075, 0, 2031636, 131075, 0, 1835028, 131075, 0)
+layer_2/navigation_enabled = false
+layer_2/tile_data = PackedInt32Array(196638, 983040, 7, 196639, 983040, 7, 196640, 983040, 7, 196641, 983040, 7, 196642, 983040, 7, 196643, 983040, 7, 196644, 983040, 7, 196645, 983040, 7, 196646, 983040, 7, 196647, 983040, 7, 196648, 983040, 7, 196649, 983040, 7, 196650, 983040, 7, 196651, 983040, 7, 196652, 983040, 7, 196653, 983040, 7, 196654, 983040, 7)
+
+[node name="Player" parent="." index="2"]
+position = Vector2(-30, -247)
+
+[node name="PlayerCamera2D" parent="Player" index="7"]
+position = Vector2(-1, -1)
+
+[node name="enemyCrab" parent="." index="3"]
+position = Vector2(70, 775)
+
+[node name="point1" parent="enemyCrab/PatrolPoints" index="0"]
+position = Vector2(-145, 32)
+
+[node name="point2" parent="enemyCrab/PatrolPoints" index="1"]
+position = Vector2(188, 49)
+
+[node name="enemyCrab2" parent="." index="4"]
+position = Vector2(908, 1092)
+
+[node name="PatrolPoints" parent="enemyCrab2" index="4"]
+position = Vector2(34, 531)
+
+[node name="point1" parent="enemyCrab2/PatrolPoints" index="0"]
+position = Vector2(-217, 45)
+
+[node name="point2" parent="enemyCrab2/PatrolPoints" index="1"]
+position = Vector2(227, 49)
+
+[node name="ParallaxBackground2" parent="." index="6" instance=ExtResource("4_r42cf")]
+
+[node name="GameScreen" parent="." index="7" instance=ExtResource("4_aqvm3")]
+
+[node name="Door2" parent="." index="8" instance=ExtResource("5_hljoi")]
+position = Vector2(1351, 630)
+rotation = -3.14159
+next_scene = "FinalText"
+
+[node name="Door" parent="." index="9"]
+position = Vector2(1364, 694)
+next_scene = "FinalText"
+
+[node name="Key" parent="." index="10" instance=ExtResource("6_fekfb")]
+position = Vector2(1740, -1261)
+key_id = "Key1"
+
+[node name="Key2" parent="." index="11" instance=ExtResource("6_fekfb")]
+position = Vector2(419, 190)
+key_id = "Key2"
+
+[node name="Key3" parent="." index="12" instance=ExtResource("6_fekfb")]
+position = Vector2(1411, -1046)
+key_id = "Key3"
+
+[node name="Key4" parent="." index="13" instance=ExtResource("6_fekfb")]
+position = Vector2(549, -1013)
+key_id = "Key4"
+
+[node name="Key5" parent="." index="14" instance=ExtResource("6_fekfb")]
+position = Vector2(877, -1319)
+key_id = "Key5"
+
+[node name="Key6" parent="." index="15" instance=ExtResource("6_fekfb")]
+position = Vector2(1205, 896)
+key_id = "Key6"
+
+[node name="Key7" parent="." index="16" instance=ExtResource("6_fekfb")]
+position = Vector2(1239, 304)
+key_id = "Key7"
+
+[node name="HealthPickup" parent="." index="17" instance=ExtResource("7_hjuyj")]
+position = Vector2(488, -16)
+
+[node name="HealthPickup2" parent="." index="18" instance=ExtResource("7_hjuyj")]
+position = Vector2(742, -20)
+
+[node name="HealthPickup3" parent="." index="19" instance=ExtResource("7_hjuyj")]
+position = Vector2(174, -1366)
+
+[node name="HealthPickup4" parent="." index="20" instance=ExtResource("7_hjuyj")]
+position = Vector2(1082, -1035)
+
+[node name="enemyAlien" parent="." index="21" instance=ExtResource("8_qyqmn")]
+position = Vector2(591, -1049)
+
+[node name="enemyAlien2" parent="." index="22" instance=ExtResource("8_qyqmn")]
+position = Vector2(1240, 815)
+
+[node name="enemyAlien3" parent="." index="23" instance=ExtResource("8_qyqmn")]
+position = Vector2(423, 783)

@@ -52,7 +52,7 @@ func _on_ativate_door_area_2d_body_entered(body: Node2D) -> void:
 	# desativa a colisão da porta principal pra poder alcançar a área de saída
 	collision_shape_2d.set_deferred("disabled", true)
 
-
+	
 
 func _on_ativate_door_area_2d_body_exited(body: Node2D) -> void:
 	if not body.is_in_group("Player"):

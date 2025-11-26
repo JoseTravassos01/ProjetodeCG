@@ -10,6 +10,8 @@ var original_sprite_scale: Vector2
 @onready var muzzle: Marker2D = $Muzzle
 @onready var hit_animation_player: AnimationPlayer = $HitAnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D  # AJUSTE SE O CAMINHO FOR OUTRO
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound   # 🔊 SOM DO TIRO
+@onready var damage_sound: AudioStreamPlayer2D = $DamageSound
 
 # --- CONFIG SLIDE ---
 const SLIDE_DURATION := 0.5        # tempo do slide em segundos
@@ -29,7 +31,7 @@ const GRAVITY = 1000
 @export var jump: int = -300
 @export var jump_horizontal_speed: int = 1000
 @export var max_jump_horizontal_speed: int = 300
-@export var wall_slide_speed: float = 0.0
+@export var wall_slide_speed: float = 10.0
 # --- KNOCKBACK (pulo pra trás quando leva dano) ---
 @export var knockback_horizontal: float = 600.0
 @export var knockback_vertical: float = -350.0
@@ -67,7 +69,6 @@ func _physics_process(delta: float) -> void:
 	player_slide(delta)
 	player_shooting(delta)
 	player_muzzle_position()
-
 	move_and_slide()
 	player_animation()
 
@@ -244,6 +245,8 @@ func player_shooting(delta: float) -> void:
 		get_parent().add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
 
+		shoot_sound.play()  # 🔊 TOCA O SOM DO TIRO
+
 		current_state = State.Shoot
 
 
@@ -320,19 +323,19 @@ func player_death() -> void:
 	parent.add_child(death_effect)
 
 	queue_free()
-	GameManager.transition_to_scene("Level1")
-
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		print("enemy entered ", body.damage_amount)
 		hit_animation_player.play("hit")
+
+		# 🔊 toca som de dano
+		damage_sound.play()
+
 		HealthManagert.decrease_health(body.damage_amount)
 
 		if HealthManagert.current_health > 0:
-			# leva dano → pulo pra trás
 			apply_knockback()
 		else:
-			# morreu → animação/mecânica de morte
-			player_death()   
+			player_death()

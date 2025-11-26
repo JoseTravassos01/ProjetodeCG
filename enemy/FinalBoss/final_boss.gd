@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # ---------- CONFIG VIDA / DANO ----------
-@export var max_health: int = 6      # tiros pra morrer
+@export var max_health: int = 10      # tiros pra morrer
 @export var damage_amount: int = 1   # quanto de dano ele dá no player
 
 # ---------- CONFIG MOVIMENTO ----------

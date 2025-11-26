@@ -2,21 +2,20 @@ extends AnimatedSprite2D
 
 var bullet_impact_effect = preload("res://Player/bullet_impact_effect.tscn")
 
-var speed : int = 600
-var direction : int 
-var damage_amount : int = 1
+var speed: int = 600
+var direction: int
+var damage_amount: int = 1
 
 
-
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	move_local_x(direction * speed * delta)
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	queue_free()
 
 
-func _on_hitbox_area_entered(area):
+func _on_hitbox_area_entered(area: Area2D) -> void:
 	print("Bullet area entered: ", area.name)
 
 	# se a área (por ex: hurtbox) for do inimigo
@@ -26,12 +25,13 @@ func _on_hitbox_area_entered(area):
 			enemy.take_damage(damage_amount)
 
 	bullet_impact()
-	
+
+
 func get_damage_amount() -> int:
 	return damage_amount
 
 
-func _on_hitbox_body_entered(body):
+func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("Bullet body entered: ", body.name)
 
 	# se bater diretamente no corpo do inimigo
@@ -40,13 +40,14 @@ func _on_hitbox_body_entered(body):
 
 	bullet_impact()
 
-func bullet_impact():
+
+func bullet_impact() -> void:
 	var impact := bullet_impact_effect.instantiate() as Node2D
 
 	# 1) adiciona no mesmo parent da bala (level / cena atual)
 	get_parent().add_child(impact)
 
-	# 2) agora sim, usa a POSIÇÃO GLOBAL da bala
+	# 2) coloca o efeito na posição da bala
 	impact.global_position = global_position
 
 	# 3) apaga a bala

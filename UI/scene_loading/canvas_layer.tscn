@@ -18,14 +18,14 @@ color = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -36.0
-offset_right = 240.0
-offset_bottom = 36.0
+offset_left = -133.0
+offset_top = -39.0
+offset_right = 347.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+audio_track = 1
 stream = ExtResource("1_se1wm")
-autoplay = true
 loop = true
 
 [node name="Label" type="Label" parent="."]

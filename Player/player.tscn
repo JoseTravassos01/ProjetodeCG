@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://xgh4ay8aaab0"]
+[gd_scene load_steps=53 format=3 uid="uid://xgh4ay8aaab0"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_r0kme"]
 [ext_resource type="Shader" uid="uid://mvqt0kfkr1y6" path="res://Player/player_hit_flash_shader.tres" id="2_khmom"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cxp4b2iokegrp" path="res://Player/player_new/project.png" id="6_m7l31"]
 [ext_resource type="Texture2D" uid="uid://urfon0pnsspy" path="res://Player/project(12).png" id="7_twj2f"]
 [ext_resource type="Texture2D" uid="uid://cqefl7j08o7o8" path="res://Player/player_new/player/player-hang.png" id="7_ust7w"]
+[ext_resource type="AudioStream" uid="uid://c2hneu5yiqkey" path="res://UI/Musics/sci-fi-gun-shot-312659.ogg" id="9_sc2pe"]
+[ext_resource type="AudioStream" uid="uid://bghk1k7xqxh6l" path="res://UI/Musics/male-death-sound-128357.mp3" id="10_4k5qe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fs7wh"]
 shader = ExtResource("2_khmom")
@@ -373,5 +375,11 @@ debug_color = Color(0.83408, 0.00131994, 0.936375, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_dsslk")
 }
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_sc2pe")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4k5qe")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

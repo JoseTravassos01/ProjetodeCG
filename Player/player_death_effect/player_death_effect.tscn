@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4aoruy4j8341"]
+[gd_scene load_steps=12 format=3 uid="uid://b4aoruy4j8341"]
 
 [ext_resource type="Texture2D" uid="uid://cuqufgcnsvjpc" path="res://Player/player_death_effect/Dark-Bolt.png" id="1_5r68b"]
 [ext_resource type="Script" path="res://Player/player_death_effect/player_death_effect.gd" id="1_rhst6"]
+[ext_resource type="AudioStream" uid="uid://bjdkvfyx6l7el" path="res://UI/Musics/8-bit-game-over-sound-effect-331435.mp3" id="3_ykqs2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_edhe4"]
 atlas = ExtResource("1_5r68b")
@@ -74,5 +75,8 @@ frame_progress = 1.0
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ykqs2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyq21y4riqw58"]
+[gd_scene load_steps=10 format=3 uid="uid://dyq21y4riqw58"]
 
 [ext_resource type="Texture2D" uid="uid://dscacw28sepkw" path="res://enemy/enemy-death.png" id="1_yhacb"]
 [ext_resource type="Script" path="res://enemy/anime_death_effect.gd" id="2_ptm45"]
+[ext_resource type="AudioStream" uid="uid://bk312mdtnhik3" path="res://UI/Musics/pixel-explosion-319166.ogg" id="3_v83le"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o8ge"]
 atlas = ExtResource("1_yhacb")
@@ -66,5 +67,8 @@ script = ExtResource("2_ptm45")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v83le")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

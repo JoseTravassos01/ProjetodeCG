@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkfxlompbqjrn"]
+[gd_scene load_steps=11 format=3 uid="uid://dkfxlompbqjrn"]
 
 [ext_resource type="PackedScene" uid="uid://b8bbi5cyv8g3d" path="res://levels/test_level/test_level.tscn" id="1_8i6w7"]
 [ext_resource type="PackedScene" uid="uid://blnibnjm5lgvn" path="res://pickup/health_pickup/health_pickup.tscn" id="2_5o7qy"]
+[ext_resource type="Script" path="res://levels/test_level/level_1.gd" id="2_c80jl"]
 [ext_resource type="PackedScene" uid="uid://b5wyemopvkwse" path="res://enemy/alien/enemy_alien.tscn" id="2_dfe1k"]
 [ext_resource type="PackedScene" uid="uid://b27sc18j3r8f1" path="res://collectibles/blue_coin/blue_coin.tscn" id="2_iifpj"]
 [ext_resource type="PackedScene" uid="uid://c571b32rm7dy7" path="res://UI/game_screen.tscn" id="3_txro3"]
@@ -12,6 +13,7 @@
 
 [node name="Level1" instance=ExtResource("1_8i6w7")]
 position = Vector2(183, -49)
+script = ExtResource("2_c80jl")
 
 [node name="Collectibles" type="Node" parent="." index="0"]
 
@@ -29,28 +31,37 @@ position = Vector2(1118, -358)
 [node name="HealthPickup" parent="PickUps" index="0" instance=ExtResource("2_5o7qy")]
 position = Vector2(897, -121)
 
-[node name="HealthPickup2" parent="PickUps" index="1" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup10" parent="PickUps" index="1" instance=ExtResource("2_5o7qy")]
+position = Vector2(247, -5)
+
+[node name="HealthPickup11" parent="PickUps" index="2" instance=ExtResource("2_5o7qy")]
+position = Vector2(247, -5)
+
+[node name="HealthPickup12" parent="PickUps" index="3" instance=ExtResource("2_5o7qy")]
+position = Vector2(247, -5)
+
+[node name="HealthPickup2" parent="PickUps" index="4" instance=ExtResource("2_5o7qy")]
 position = Vector2(1168, -461)
 
-[node name="HealthPickup3" parent="PickUps" index="2" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup3" parent="PickUps" index="5" instance=ExtResource("2_5o7qy")]
 position = Vector2(1520, -394)
 
-[node name="HealthPickup4" parent="PickUps" index="3" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup4" parent="PickUps" index="6" instance=ExtResource("2_5o7qy")]
 position = Vector2(1836, -365)
 
-[node name="HealthPickup5" parent="PickUps" index="4" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup5" parent="PickUps" index="7" instance=ExtResource("2_5o7qy")]
 position = Vector2(2428, -465)
 
-[node name="HealthPickup6" parent="PickUps" index="5" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup6" parent="PickUps" index="8" instance=ExtResource("2_5o7qy")]
 position = Vector2(3028, -174)
 
-[node name="HealthPickup7" parent="PickUps" index="6" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup7" parent="PickUps" index="9" instance=ExtResource("2_5o7qy")]
 position = Vector2(3701, -324)
 
-[node name="HealthPickup8" parent="PickUps" index="7" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup8" parent="PickUps" index="10" instance=ExtResource("2_5o7qy")]
 position = Vector2(4264, -198)
 
-[node name="HealthPickup9" parent="PickUps" index="8" instance=ExtResource("2_5o7qy")]
+[node name="HealthPickup9" parent="PickUps" index="11" instance=ExtResource("2_5o7qy")]
 position = Vector2(4569, -463)
 
 [node name="TileMap" parent="." index="2"]
@@ -62,9 +73,9 @@ layer_2/navigation_enabled = false
 layer_2/tile_data = PackedInt32Array(196638, 983040, 7, 196639, 983040, 7, 196640, 983040, 7, 196641, 983040, 7, 196642, 983040, 7, 196643, 983040, 7, 196644, 983040, 7, 196645, 983040, 7, 196646, 983040, 7, 196647, 983040, 7, 196648, 983040, 7, 196649, 983040, 7, 196650, 983040, 7, 196651, 983040, 7, 196652, 983040, 7, 196653, 983040, 7, 196654, 983040, 7)
 
 [node name="Player" parent="." index="3"]
-position = Vector2(56, -49)
+position = Vector2(66, -46)
 
-[node name="PlayerCamera2D" parent="Player" index="5"]
+[node name="PlayerCamera2D" parent="Player" index="7"]
 position = Vector2(-1, -1)
 
 [node name="enemyCrab" parent="." index="4"]
