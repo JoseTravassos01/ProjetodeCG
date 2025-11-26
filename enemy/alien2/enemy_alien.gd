@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var max_health: int = 4      # 3 tiros pra morrer
+@export var max_health: int = 6      # tiros pra morrer
 @export var damage_amount: int = 1   # quanto de dano ele dá no player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

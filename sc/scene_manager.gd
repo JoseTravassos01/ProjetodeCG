@@ -2,7 +2,8 @@ extends Node
 
 var scenes: Dictionary = {
 	"Level1": "res://levels/test_level/level_1.tscn",
-	"Level2": "res://levels/test_level/level_2.tscn"
+	"Level2": "res://levels/test_level/level_2.tscn",
+	"Level3": "res://levels/test_level/level_3.tscn"
 }
 
 var loading_scene := preload("res://UI/scene_loading/canvas_layer.tscn")

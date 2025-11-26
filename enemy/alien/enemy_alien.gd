@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var max_health: int = 3      # 3 tiros pra morrer
+@export var max_health: int = 6     # 3 tiros pra morrer
 @export var damage_amount: int = 1   # quanto de dano ele dá no player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -35,3 +35,7 @@ func take_damage(amount: int) -> void:
 		effect.global_position = animated_sprite_2d.global_position
 
 		queue_free()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	pass # Replace with function body.

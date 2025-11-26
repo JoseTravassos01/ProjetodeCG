@@ -348,7 +348,7 @@ material = SubResource("ShaderMaterial_fs7wh")
 position = Vector2(-8.47033e-22, -19)
 scale = Vector2(0.0746936, 0.0812085)
 sprite_frames = SubResource("SpriteFrames_0sws7")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

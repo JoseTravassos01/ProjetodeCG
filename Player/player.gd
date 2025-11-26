@@ -14,7 +14,7 @@ var original_sprite_scale: Vector2
 # --- CONFIG SLIDE ---
 const SLIDE_DURATION := 0.5        # tempo do slide em segundos
 const SLIDE_SPEED := 400.0         # impulso horizontal
-const SLIDE_HEIGHT_FACTOR := 0.5   # altura do collider no slide (50%)
+const SLIDE_HEIGHT_FACTOR := 0.2   # altura do collider no slide (50%)
 
 var slide_timer: float = 0.0
 var original_shape_size_y: float = 0.0
@@ -29,10 +29,10 @@ const GRAVITY = 1000
 @export var jump: int = -300
 @export var jump_horizontal_speed: int = 1000
 @export var max_jump_horizontal_speed: int = 300
-@export var wall_slide_speed: float = 80.0
+@export var wall_slide_speed: float = 0.0
 # --- KNOCKBACK (pulo pra trás quando leva dano) ---
-@export var knockback_horizontal: float = 800.0
-@export var knockback_vertical: float = -550.0
+@export var knockback_horizontal: float = 600.0
+@export var knockback_vertical: float = -350.0
 
 # --------- CONTROLE DE PULO ----------
 const MAX_JUMPS := 3         # máximo de pulos
@@ -320,6 +320,8 @@ func player_death() -> void:
 	parent.add_child(death_effect)
 
 	queue_free()
+	GameManager.transition_to_scene("Level1")
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

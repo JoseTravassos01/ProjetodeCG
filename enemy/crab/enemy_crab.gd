@@ -3,7 +3,7 @@ extends CharacterBody2D
 var enemy_death_effect= preload("res://enemy/anime_death_effect.tscn")
 
 @export var patrol_points : Node
-@export var speed : int = 7500
+@export var speed : int = 3500
 @export var wait_time : int = 1
 @export var health_amount : int = 8
 @export var damage_amount : int = 1

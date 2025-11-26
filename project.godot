@@ -35,6 +35,7 @@ window/stretch/scale=1.91
 
 Player=""
 Enemy=""
+PlayerBullet=""
 
 [input]
 
@@ -81,6 +82,8 @@ slide={
 2d_physics/layer_5="COLLECTIBLES"
 2d_physics/layer_6="DOOR"
 2d_physics/layer_7="KEYS"
+2d_physics/layer_8="BULLET"
+2d_physics/layer_9="ENEM"
 
 [rendering]
 
