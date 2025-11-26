@@ -47,16 +47,28 @@ position = Vector2(3028, -174)
 [node name="HealthPickup7" parent="PickUps" index="6" instance=ExtResource("3_4mifo")]
 position = Vector2(3701, -324)
 
-[node name="HealthPickup8" parent="PickUps" index="7" instance=ExtResource("3_4mifo")]
+[node name="HealthPickup12" parent="PickUps" index="7" instance=ExtResource("3_4mifo")]
+position = Vector2(239, -18)
+
+[node name="HealthPickup13" parent="PickUps" index="8" instance=ExtResource("3_4mifo")]
+position = Vector2(239, -18)
+
+[node name="HealthPickup14" parent="PickUps" index="9" instance=ExtResource("3_4mifo")]
+position = Vector2(239, -18)
+
+[node name="HealthPickup15" parent="PickUps" index="10" instance=ExtResource("3_4mifo")]
+position = Vector2(239, -18)
+
+[node name="HealthPickup8" parent="PickUps" index="11" instance=ExtResource("3_4mifo")]
 position = Vector2(4264, -198)
 
-[node name="HealthPickup9" parent="PickUps" index="8" instance=ExtResource("3_4mifo")]
+[node name="HealthPickup9" parent="PickUps" index="12" instance=ExtResource("3_4mifo")]
 position = Vector2(4569, -463)
 
-[node name="HealthPickup10" parent="PickUps" index="9" instance=ExtResource("3_4mifo")]
+[node name="HealthPickup10" parent="PickUps" index="13" instance=ExtResource("3_4mifo")]
 position = Vector2(4278, -34)
 
-[node name="HealthPickup11" parent="PickUps" index="10" instance=ExtResource("3_4mifo")]
+[node name="HealthPickup11" parent="PickUps" index="14" instance=ExtResource("3_4mifo")]
 position = Vector2(5232, -237)
 
 [node name="TileMap" parent="." index="2"]
@@ -70,7 +82,7 @@ layer_2/tile_data = PackedInt32Array(196638, 983040, 7, 196639, 983040, 7, 19664
 [node name="Player" parent="." index="3"]
 position = Vector2(56, -49)
 
-[node name="PlayerCamera2D" parent="Player" index="5"]
+[node name="PlayerCamera2D" parent="Player" index="7"]
 position = Vector2(-1, -1)
 
 [node name="enemyCrab" parent="." index="4"]
@@ -233,7 +245,7 @@ position = Vector2(-68, 8)
 position = Vector2(58, 13)
 
 [node name="enemyCrab11" parent="Node" index="2" node_paths=PackedStringArray("patrol_points") instance=ExtResource("7_lms4g")]
-position = Vector2(3695, -310)
+position = Vector2(3698, -344)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Marker2D" parent="Node/enemyCrab11" index="4"]

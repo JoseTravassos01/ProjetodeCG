@@ -26,13 +26,10 @@ position = Vector2(1507, -21)
 position = Vector2(1461, -21)
 
 [node name="enemyAlien" parent="Collectibles" index="3" instance=ExtResource("3_mki1e")]
-position = Vector2(902, -234)
+position = Vector2(814, -211)
 
 [node name="enemyAlien2" parent="Collectibles" index="4" instance=ExtResource("3_mki1e")]
-position = Vector2(679, -239)
-
-[node name="enemyAlien3" parent="Collectibles" index="5" instance=ExtResource("3_mki1e")]
-position = Vector2(822, -69)
+position = Vector2(1368, -196)
 
 [node name="TileMap" parent="." index="1"]
 position = Vector2(-1, 0)
@@ -109,25 +106,55 @@ position = Vector2(1226, -92)
 key_id = "Key7"
 
 [node name="HealthPickup" parent="." index="16" instance=ExtResource("3_mxiae")]
-position = Vector2(488, -16)
+position = Vector2(551, 22)
 
-[node name="HealthPickup2" parent="." index="17" instance=ExtResource("3_mxiae")]
+[node name="HealthPickup7" parent="." index="17" instance=ExtResource("3_mxiae")]
+position = Vector2(1224, -95)
+
+[node name="HealthPickup8" parent="." index="18" instance=ExtResource("3_mxiae")]
+position = Vector2(1332, -328)
+
+[node name="HealthPickup9" parent="." index="19" instance=ExtResource("3_mxiae")]
+position = Vector2(-12, -249)
+
+[node name="HealthPickup10" parent="." index="20" instance=ExtResource("3_mxiae")]
+position = Vector2(-12, -249)
+
+[node name="HealthPickup11" parent="." index="21" instance=ExtResource("3_mxiae")]
+position = Vector2(-12, -249)
+
+[node name="HealthPickup12" parent="." index="22" instance=ExtResource("3_mxiae")]
+position = Vector2(1083, -562)
+
+[node name="HealthPickup13" parent="." index="23" instance=ExtResource("3_mxiae")]
+position = Vector2(1083, -562)
+
+[node name="HealthPickup5" parent="." index="24" instance=ExtResource("3_mxiae")]
+position = Vector2(342, -137)
+
+[node name="HealthPickup2" parent="." index="25" instance=ExtResource("3_mxiae")]
 position = Vector2(742, -20)
 
-[node name="HealthPickup3" parent="." index="18" instance=ExtResource("3_mxiae")]
+[node name="HealthPickup15" parent="." index="26" instance=ExtResource("3_mxiae")]
+position = Vector2(742, -20)
+
+[node name="HealthPickup3" parent="." index="27" instance=ExtResource("3_mxiae")]
 position = Vector2(34, -512)
 
-[node name="HealthPickup4" parent="." index="19" instance=ExtResource("3_mxiae")]
+[node name="HealthPickup6" parent="." index="28" instance=ExtResource("3_mxiae")]
+position = Vector2(34, -512)
+
+[node name="HealthPickup14" parent="." index="29" instance=ExtResource("3_mxiae")]
+position = Vector2(34, -512)
+
+[node name="HealthPickup4" parent="." index="30" instance=ExtResource("3_mxiae")]
 position = Vector2(1117, -546)
 
-[node name="enemyAlien" parent="." index="20" instance=ExtResource("8_nwy3i")]
-position = Vector2(223, -493)
+[node name="enemyAlien" parent="." index="31" instance=ExtResource("8_nwy3i")]
+position = Vector2(237, -500)
 
-[node name="enemyAlien2" parent="." index="21" instance=ExtResource("8_nwy3i")]
-position = Vector2(1214, -308)
+[node name="enemyAlien2" parent="." index="32" instance=ExtResource("8_nwy3i")]
+position = Vector2(1002, -538)
 
-[node name="enemyAlien3" parent="." index="22" instance=ExtResource("8_nwy3i")]
-position = Vector2(627, 36)
-
-[node name="enemyAlien4" parent="." index="23" instance=ExtResource("8_nwy3i")]
-position = Vector2(903, -541)
+[node name="enemyAlien3" parent="." index="33" instance=ExtResource("8_nwy3i")]
+position = Vector2(587, -6)

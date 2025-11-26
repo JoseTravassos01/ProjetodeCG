@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 # ---------- CONFIG VIDA / DANO ----------
-@export var max_health: int = 10      # tiros pra morrer
+@export var max_health: int = 18      # tiros pra morrer
 @export var damage_amount: int = 1   # quanto de dano ele dá no player
 
 # ---------- CONFIG MOVIMENTO ----------
-@export var move_speed: float = 30.0        # velocidade de perseguição
+@export var move_speed: float = 35.0        # velocidade de perseguição
 @export var chase_distance: float = 400.0   # distância pra começar a perseguir (ajusta no Inspector)
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
